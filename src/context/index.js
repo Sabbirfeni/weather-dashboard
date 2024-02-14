@@ -1,5 +1,6 @@
 import { useContext } from "react";
+import { WeatherContext } from "./WeatherContext";
 
-const WeatherContext = useContext();
+const useWeatherContext = () => useContext(WeatherContext);
 
-export { WeatherContext };
+export { useWeatherContext };

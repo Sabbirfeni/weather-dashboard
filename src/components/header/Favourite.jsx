@@ -1,7 +1,10 @@
 import HeartImage from "../../assets/heart.svg";
-function Favourite() {
+function Favourite({ onFavModalShow }) {
   return (
-    <div className="p-2 hover:bg-black/30 cursor-pointer flex gap-2 items-center rounded-md transition-all">
+    <div
+      onClick={onFavModalShow}
+      className="p-2 hover:bg-black/30 cursor-pointer flex gap-2 items-center rounded-md transition-all"
+    >
       <img src={HeartImage} alt="heart" />
       <span>Favourite Locations</span>
     </div>

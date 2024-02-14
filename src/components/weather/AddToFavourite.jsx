@@ -1,6 +1,9 @@
 import React from "react";
 import HeartImage from "../../assets/heart.svg";
+import { useFavouriteContext } from "../../context";
 function AddToFavourite() {
+  const { favourites } = useFavouriteContext();
+  console.log(favourites);
   return (
     <div className="md:col-span-2">
       <div className="flex items-center justify-end space-x-6">

@@ -4,13 +4,13 @@ function FavouriteListModal() {
   const { setSearchLocation, setSearchTerm } = useLocationContext();
   const { favourites } = useFavouriteContext();
   const handleSearchLocation = (fav) => {
-    setSearchLocation(fav);
     setSearchTerm("");
+    setSearchLocation({ ...fav });
   };
   const favouriteEles = favourites.map((fav) => (
     <li
       key={fav.location}
-      onClick={(fav) => handleSearchLocation(fav)}
+      onClick={() => handleSearchLocation(fav)}
       className="hover:bg-gray-200"
     >
       {fav.location}

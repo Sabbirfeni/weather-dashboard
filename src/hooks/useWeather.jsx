@@ -69,19 +69,19 @@ const useWeather = () => {
   };
 
   useEffect(() => {
-    let ignor = false;
-    // setLoading((loading) => ({
-    //   ...loading,
-    //   state: false,
-    //   message: "Finding location...",
-    // }));
+    let ignore = false;
+    setLoading((loading) => ({
+      ...loading,
+      state: true,
+      message: "Finding location...",
+    }));
     if (searchLocation.latitude && searchLocation.longitude) {
       const fetchData = async () => {
         const fetchedWeatherData = await fetchWeatherData(
           searchLocation.latitude,
           searchLocation.longitude
         );
-        if (!ignor) {
+        if (!ignore) {
           setWeatherData({ ...fetchedWeatherData });
         }
       };
@@ -92,14 +92,14 @@ const useWeather = () => {
           position.coords.latitude,
           position.coords.longitude
         );
-        if (!ignor) {
+        if (!ignore) {
           setWeatherData({ ...data });
         }
       });
     }
 
     return () => {
-      ignor = true;
+      ignore = true;
     };
   }, [searchLocation]);
 
